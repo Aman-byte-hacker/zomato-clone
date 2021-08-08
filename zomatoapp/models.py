@@ -23,7 +23,6 @@ class Resturant(models.Model):
         ('Nonveg','Nonveg'),
         ('both','both')
     ]
-
     base = models.CharField(choices=status,max_length=50,default="")
     mobile = models.PositiveIntegerField(default=0)
     address = models.CharField(max_length=1000)

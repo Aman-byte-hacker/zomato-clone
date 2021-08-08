@@ -170,6 +170,9 @@
     display: flex;
     align-items: center;
   }
+  .input2{
+    
+  }
 
   .applink {
     display: flex;
@@ -193,19 +196,21 @@
     <p class="para">zomato</p>
     <p class="desc">Discover the best food & drinks in kingdam, KS</p>
     <p style="text-align: center; color:white; font-size:large; text-transform: capitalize;">Your Location : {{location.city}}</p>
-    <div class="inputs center">
-      <div class="input1">
-        <select id="dropdown" class="form-select" aria-label="Default select example">
-          <i style="color: red" class="fa fa-map-marker" aria-hidden="true"></i>
-          <option selected>Location</option>
-          <option value="1">Show Nearby dishes</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+    <div class="inputs" center>
+      <div style="margin-bottom: 3%;" class="input1">
+        <form class="d-flex" method="GET" action="/search">
+          <input style="padding-left:3%;" class="form-control me-2" type="search" placeholder="Search for a city" value={{location.city}} name="query" id="search" aria-label="Search">
+        </form>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+
       </div>
-      <div class="input2">
+
+      <div style="margin-bottom:3%;" class="input2">
         <i style="font-size: 25px" class="fa fa-search"></i>
-        <input id="search" type="text" placeholder="Search for resturant, cuisine or a dish" />
+        <form  class="d-flex" method="GET" action="/searchresturant">
+          <input style="width: 500px; padding-top:10px; padding-bottom:10px; padding-left:47px;" style="padding-left:3%;" class="form-control me-2" type="search" placeholder="Search for Resturant and dishes" value="" name="rest" id="rest" aria-label="rest">
+        </form>
+        <button class="btn btn-outline-success" type="submit">Search</button>
       </div>
     </div>
   </div>
