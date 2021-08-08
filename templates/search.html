@@ -8,14 +8,8 @@
 </head>
 <body>
    
-    {% if resturantname %}
-        {% for resturantname in resturant %}
-            <p>{{resturantname.name}}</p>
-        {% endfor %}
-    {% else %}
-        {% for resturant in resturant %}
-            <p>{{resturant.name}}</p>
-        {% endfor %}
-    {% endif %}
+   {% for resturant in resturant %}
+        <p>{{resturant.name}}</p>
+   {% endfor %}
 </body>
 </html>
