@@ -28,9 +28,10 @@ def logout(request):
 def search(request):
     queryset = request.GET.get('query')
     resturant = Resturant.objects.filter(city__icontains=queryset)
-
+    category = Category.objects.all()[:4]
     context={
         'resturant':resturant,
+        'category': category
      
     }    
     print(queryset)

@@ -1,15 +1,484 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resturants</title>
-</head>
-<body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  
+    <title>Hello, world!</title>
+  </head>
+  <style>
+    .img_google{
+        border-radius: 50%;
+        width:40px;
+        height: 40px;
+        margin-right: 6px;   
+        margin-top: 0px;     
+    }
    
-   {% for resturant in resturant %}
-        <p>{{resturant.name}}</p>
-   {% endfor %}
-</body>
+    
+    
+    
+      #dropdow{
+        height: 40px;
+        
+      }
+    
+      .right2 {
+        position: absolute;
+        font-size: large;
+        cursor: pointer;
+        right: 1px;
+      }
+    
+      
+      .para {
+        text-align: center;
+        font-size: 100px;
+        font-style: italic;
+        color: white;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+    
+      
+    
+     
+    
+      .desc {
+        text-align: center;
+        margin-top: 1%;
+        color: white;
+        font-size: 32px;
+        word-spacing: 2px;
+      }
+    
+      .img_google{
+        border-radius: 50%;
+        width:40px;
+        height: 40px;
+        
+      }
+    
+      h6{
+        letter-spacing: 2px;
+      }
+    
+      select {
+        height: 50px;
+      }
+      .footer-head{
+       
+      }
+    
+    
+      #dropdown {
+        text-align: center;
+        width: 250px;
+      }
+    
+      
+    
+      .footer-head{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+    
+      .container {
+        margin-top: 3%;
+        margin-bottom: 3%;
+      }
+    
+      .card {
+        border-radius: 12px;
+      }
+    
+      .place_parent {
+        margin-top: 4%;
+        margin-left: 17%;
+        width: 290px;
+      }
+    
+      .socialicons{
+        display: flex;
+        position: relative;
+        left:18%;
+      }
+    
+      input:hover{
+        border: none;
+      }
+    
+      .place_name {
+        font-size: large;
+        padding-left: 5%;
+      }
+      .buttons{
+        display: flex;
+        align-items: center;
+      }
+      .rest{
+        
+      }
+    
+      .drop{
+        display: flex;
+        align-items: center;
+      }
+      .input2{
+        
+      }
+    
+      .applink {
+        display: flex;
+        align-items: center;
+      }
+    i{
+        position: absolute;
+        color:lightgrey;
+        top:4%;
+        padding-left: 1%;
+    }
+    .parent{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .logo{
+        margin-right: 1%;
+        margin-left: 3%;
+        display: flex;
+        align-items: center;
+    }
+    .para{
+        font-size: 40px;
+        color: black;
+        margin-top: 0px;
+        text-align: center;
+        font-style: italic;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+    }
+    .inputs {
+        display: flex;
+       
+        align-items: center;
+        
+    }
+    .profile{
+        display: flex;
+        align-items: center;
+        margin-right: 5%;
+    }
+    .para_del{
+        color: rgb(237, 90, 107);
+        font-size: large;
+        font:200;
+        padding-left: 30%;
+        margin-top: 1%; 
+        letter-spacing: 1px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .resturantimage{
+        width:300px;
+        height: 200px;
+    }
+    .delivery{
+        display: flex;
+        align-items: center;
+        width:150px;
+    }
+    .nutrition{
+        display: flex;
+        align-items: center;
+        width: 300px;
+    }
+
+    .nutrition_image{
+        border-radius: 50%;
+        border: none;
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+        background-color: rgb(236, 229, 216);
+        margin-left: 2%;
+        object-fit: contain;
+    }
+    .side{
+        display: flex;
+    }
+    .image_nut{
+        margin-left: 32%;
+    }
+    .delboy_image{
+        border-radius: 50%;
+        border: none;
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+        background-color: rgb(240, 225, 200);
+        margin-left: 2%;
+        object-fit: contain;
+    }
+    .para_nut{
+        color: rgb(237, 90, 107);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: large;
+    }
+    .filters{
+        display:flex;
+        margin-top: 2%;
+       
+    }
+    .filter{
+        margin-right: 5px;
+        
+    }
+    .filterpara{
+        margin-top: 2px;
+        border: 1px solid lightgrey;
+        padding:5px 10px 7px 10px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    .titlenut{
+        margin-left: 12%;
+    }
+    .delivery:hover{
+        border-bottom: 2px solid lightcoral;
+    }
+    .nutrition:hover{
+        border-bottom: 2px solid lightcoral;
+    }
+    .catdish{
+        display: flex;
+        margin-top: 2%;
+    }
+    .cat_image{
+        
+    }
+    .eat_para{
+        font-size: xx-large;
+        margin-top: 2%;
+    }
+    .catname{
+        margin-top: 2%;
+        text-transform: capitalize;
+        font-size: 20px;
+    }
+    .catimage{
+        width: 250px;
+        height: 200px;
+        border: 1px solid black;
+        border-radius: 10px;
+        border: none;
+        margin-right: 30px;
+    }
+    a.disabled {
+        pointer-events: none;
+        color: #ccc;
+    }
+</style>
+  <body>
+ 
+    <div class="parent">
+        <div class="logo">
+            <a style="text-decoration: none;" href="/"><p class="para">zomato</p></a>
+            <div style="margin-bottom: 3%; margin-left:10%; margin-top:2%;" class="input1">
+                <form class="d-flex" method="GET" action="/search">
+                  <input style="width: 250px; padding:10px;" class="form-control me-2" type="search" placeholder="Search for a city" value="" name="query" id="search" aria-label="Search">
+                </form>
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+        
+            </div>
+            <div style="margin-bottom:3%; margin-top:2%;" class="input2">
+                <i style="font-size: 25px" class="fa fa-search"></i>
+                <form  class="d-flex" method="GET" action="/searchresturant">
+                  <input style="width: 500px; padding-top:10px; padding-bottom:10px; padding-left:42px;" style="padding-left:1%;" class="form-control me-2" type="search" placeholder="Search for Resturant and dishes" value="" name="rest" id="rest" aria-label="rest">
+                </form>
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </div>
+        </div>  
+         
+        <div class="profile">
+            {% if request.user.is_authenticated %}
+                <img style="margin-bottom: 25px; margin-top:15%;" class="img_google" src="{{ user.socialaccount_set.all.0.get_avatar_url }}"></li></p>
+                <p style="font-size: large; text-transform:capitalize; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{request.user}}</p>
+            {% endif %}
+        </div>
+    </div>
+    <section style="margin-top: 1%; margin-left:10%;">
+        <div class="side">
+            <div class="delivery">
+                <div class="image">
+                    <img class="delboy_image" src="https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png" alt="delievery">
+                </div>
+                <div class="title">
+                    <p class="para_del">Delivery</p>
+                </div>
+            </div>
+            <div class="nutrition">
+                <div class="image_nut">
+                    <img class="nutrition_image" src="https://b.zmtcdn.com/data/o2_assets/54cad8274d3c3ec7129e0808a13b27c31616582882.png" alt="nutrition">
+                </div>
+                <div class="titlenut">
+                    <p class="para_nut">Nutrtion</p>
+                </div>
+            </div>
+        </div>
+        <div class="filters">
+            <p style="border: 1px solid lightgrey; margin-right:5px; border-radius:10px; padding-left:10px; padding-bottom:3px; padding-right:10px; padding-top:5px;">Filters</p>
+            {% for category in category %}
+                <div class="filter">
+                    <p style="text-transform:capitalize;" class="filterpara">{{category.name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <p class="eat_para">Eat what makes you happy</p>
+        <div class="catdish">
+            {% for category in category %}
+                <div class="cat_image">
+                    <img class="catimage" src="{{category.image.url}}" alt="image">
+                    <p class="catname">{{category.name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <p class="eat_para">Delivery Restaurants in {{query}}</p>
+        <div  style="margin-top: 3%;" class="resturants">
+           <div class="row">
+               <div class="col">
+                   <div class="row">
+                    {% for resturant in resturant %}
+                        {% if resturant.reststatus == "open" %}
+                           <a href="" class="col-lg-4 col-md-4 col-sm-6" style="text-decoration: none;">
+                            <div style="color: black;" >
+                                <img class="resturantimage" src="{{resturant.image.url}}" alt="resturant">
+                                <p style="font-size:large;">{{resturant.name}} ({{resturant.city}})</p>
+                                <p style="font-size: large;">Status : {{resturant.base}}</p>
+                            </div>
+                           </a>
+                        {% else %}
+                            <a class="disabled" class="col-lg-4 col-md-4 col-sm-6" style="text-decoration: none;" href="">
+                                <div aria-disabled="true" style="opacity:0.3; color:black;" >
+                                    <img class="resturantimage" src="{{resturant.image.url}}" alt="resturant">
+                                    <p style="font-size:large;">{{resturant.name}} ({{resturant.city}})</p>
+                                    <p style="font-size: large;">Status : {{resturant.base}}</p>
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+               </div>
+           </div>
+        </div>
+    </section>
+    
+   <div class="container">
+    <h4>Explore other options for you here</h4>
+    <h4 style="margin-top: 3%;">Popular cuisines near me</h4>
+    <p style="color: grey; font-size:large;">American food near me . BBQ food near me . Bar food near me . Burger food near me . Cafe food near me . Chinese food near me . Coffee and Tea food near me . Desserts food near me . German food near me . Greek food near meIce Cream food near meItalian food near meJapanese food near meMexican food near mePizza food near meSandwich food near meSeafood food near meSteak food near meSushi food near meTea food near me</p>
+    <h4 style="margin-top: 3%;">Popular resturant types near me</h4>
+    <p style="color:grey; font-size:large;">Bakeries near me . Bars near meCafés near me . Casual Dining near me . Dessert Shops near me . Fast Casual near me . Fast Food near me . Pizzerias near me . Quick Bites near me . Sandwich Shops near me . Taquerias near me</p>
+  </div>
+
+  </section>
+
+  <footer style="background-color: rgb(248, 241, 241);">
+    <div style="margin-bottom: 5%;" class="footer-head">
+      <div style="margin-top: 5%;" class="name">
+        <h2 style="font-style: italic; font-size:xx-large;">zomato</h2>
+      </div>
+      <div style="margin-top: 5%;" class="drop">
+       
+          <select id="dropdow" class="form-select" aria-label="Default select example">
+            <i style="color: red" class="fa fa-map-marker" aria-hidden="true"></i>
+            <option selected>USA</option>
+            <option value="1">India</option>
+            <option value="2">UAE</option>
+            <option value="3">Australia</option>
+          </select>
+          <select id="dropdow" class="form-select" aria-label="Default select example">
+            <i style="color: red" class="fa fa-map-marker" aria-hidden="true"></i>
+            <option selected>English</option>
+            <option value="1">Hindi</option>
+            <option value="2">Telgu</option>
+            <option value="3">Punjabi</option>
+          </select>
+      </div>
+    </div>
+    <div style="margin-left:10%">
+      <div class="row">
+        <div style="" class="col-2">
+          <h6>COMPANY</h6>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Who we Are</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Blog</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Careers</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Report Fraud</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Contact</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Investor Relations</p>
+        </div>
+        <div class="col-2">
+          <h6>FOR FOODIES</h6>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Code of Conduct</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Community</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Blogger Help</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Mobile Apps</p>
+        </div>
+        <div class="col-2">
+          <h6>FOR RESTURANTS</h6>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Add Resturant</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Business App</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Resturant Widgets</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95);">Products for Businesses</p>
+        </div>
+        <div class="col-2">
+          <h6 style="text-align: center;">FOR YOU</h6>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95); text-align:center;">Privacy</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95); text-align:center;">Teams</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95); text-align:center;">Security</p>
+          <p style="margin-bottom: 0px; color:rgb(100, 95, 95); text-align:center;">Sitemap</p>
+        </div>
+        <div class="col-4" >
+          <h6 style="margin-left: 20%;">SOCIAL LINKS</h6>
+          <div class="socialicons">
+            <div class="facebook">
+              <i style="background-color: black; padding:12px; color:white; border-radius:60%;" class="fa fa-facebook" aria-hidden="true"></i>
+            </div>
+            <div class="twitter">
+              <i style="background-color: black; margin-left:52px; padding:12px; color:white; border-radius:60%;" class="fa fa-twitter" aria-hidden="true"></i>
+            </div>
+            <div class="instagram">
+              <i style="background-color: black; margin-left:104px; padding:12px; color:white; border-radius:60%;" class="fa fa-instagram" aria-hidden="true"></i>
+            </div>
+          </div>
+          <a href=""><img style="width:60%; height:60px; margin-left:25px; margin-top:13%; margin-bottom:3%;" src="{% static 'appstore.webp' %}" alt="appstore"></a>
+          <a href=""><img style="width: 60%; height:60px; margin-left:25px;" src="{% static 'playstore.webp' %}" alt="playstore"></a>
+          
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  </body>
 </html>

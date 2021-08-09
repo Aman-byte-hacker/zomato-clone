@@ -6,7 +6,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=400)
-
+    image = models.ImageField(upload_to="uploads/categories",default="")
     class Meta:
         verbose_name_plural = "Categories"
 
@@ -14,6 +14,7 @@ class Category(models.Model):
         return self.name
 
 class Resturant(models.Model):
+    
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=2000)
     image = models.ImageField(upload_to="uploads",default="")
@@ -26,6 +27,11 @@ class Resturant(models.Model):
     base = models.CharField(choices=status,max_length=50,default="")
     mobile = models.PositiveIntegerField(default=0)
     address = models.CharField(max_length=1000)
+    reststatus = [
+        ('open','open'),
+        ('close','close')
+    ]
+    reststatus = models.CharField(choices=reststatus,default="",max_length=100)
 
     def __str__(self):
         return self.name

@@ -165,6 +165,9 @@
     display: flex;
     align-items: center;
   }
+  .rest{
+    
+  }
 
   .drop{
     display: flex;
@@ -189,7 +192,7 @@
           <a href="/logout"><li class="right2">Logout</li></a>
       {% else %}
         <a href="{% provider_login_url "google" %}"><li class="right1">Login</li></a>
-        <li class="right2">Signup</li>
+        <a href="{% provider_login_url "google" %}"><li class="right2">Signup</li></a>
       {% endif %}
     </ul>
     
@@ -208,7 +211,7 @@
       <div style="margin-bottom:3%;" class="input2">
         <i style="font-size: 25px" class="fa fa-search"></i>
         <form  class="d-flex" method="GET" action="/searchresturant">
-          <input style="width: 500px; padding-top:10px; padding-bottom:10px; padding-left:47px;" style="padding-left:3%;" class="form-control me-2" type="search" placeholder="Search for Resturant and dishes" value="" name="rest" id="rest" aria-label="rest">
+          <input style="width:500px; padding-top:10px; padding-bottom:10px; padding-left:47px;" style="padding-left:3%;" class="form-control me-2" type="search" placeholder="Search for Resturant and dishes" value="" name="rest" id="rest" aria-label="rest">
         </form>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </div>
