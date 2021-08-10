@@ -8,6 +8,7 @@ urlpatterns = [
     path('login/',views.login,name="login"),
     path('logout/',views.logout,name="logout"),
     path('search/',views.search,name="search"),
+    path('resturant/<int:resturantid>',views.detail,name="detail"),
     path('searchresturant/',views.searchresturant,name="searchresturant")
 
 ] + static(MEDIA_URL,document_root=MEDIA_ROOT)

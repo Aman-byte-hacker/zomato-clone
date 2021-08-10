@@ -360,7 +360,7 @@
                    <div class="row">
                     {% for resturant in resturant %}
                         {% if resturant.reststatus == "open" %}
-                           <a href="" class="col-lg-4 col-md-4 col-sm-6" style="text-decoration: none;">
+                           <a href="/resturant/{{resturant.id}}" class="col-lg-4 col-md-4 col-sm-6" style="text-decoration: none;">
                             <div style="color: black;" >
                                 <img class="resturantimage" src="{{resturant.image.url}}" alt="resturant">
                                 <p style="font-size:large;">{{resturant.name}} ({{resturant.city}})</p>

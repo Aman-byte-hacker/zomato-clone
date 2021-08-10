@@ -27,7 +27,10 @@ def logout(request):
 
 def search(request):
     queryset = request.GET.get('query')
-    resturant = Resturant.objects.filter(city__icontains=queryset)
+    if queryset:
+        resturant = Resturant.objects.filter(city__icontains=queryset)
+    else:
+        resturant = Resturant.objects.all()
     category = Category.objects.all()[:4]
     context={
         'resturant':resturant,
@@ -47,3 +50,14 @@ def searchresturant(request):
     }
     print(resturant)
     return render(request,"searchrest.html",context=context)
+
+def detail(request,resturantid):
+    resturant = Resturant.objects.filter(id=resturantid)
+    category = Category.objects.all()
+    dish = Dish.objects.filter(resturant__name__contains=resturant.first())
+    context = {
+        'resturant' : resturant,
+        'category' : category,
+        'dish' : dish
+    }
+    return render(request,"detail.html",context=context)

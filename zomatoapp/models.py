@@ -17,7 +17,8 @@ class Resturant(models.Model):
     
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=2000)
-    image = models.ImageField(upload_to="uploads",default="")
+    image = models.ImageField(upload_to="uploads",default="",blank=False)
+    image1 = models.ImageField(upload_to="uploads",default="",blank=False)
     city = models.CharField(max_length=50,default="")
     status = [
         ('veg','veg'),
@@ -32,7 +33,8 @@ class Resturant(models.Model):
         ('close','close')
     ]
     reststatus = models.CharField(choices=reststatus,default="",max_length=100)
-
+    timingstart = models.CharField(max_length=100,default="")
+    timingend = models.CharField(max_length=100,default="")
     def __str__(self):
         return self.name
 
@@ -42,7 +44,7 @@ class Dish(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=80)
     image = models.ImageField(upload_to="uploads/dishes",default="",blank=True)
-    imagelink = models.CharField(max_length=1400,default="")    
+    imagelink = models.CharField(max_length=1400,default="",blank=True)    
     price = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=True)
     category = models.ForeignKey(Category,on_delete=models.DO_NOTHING,default="")

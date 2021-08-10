@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  
+    <title>Hello, world!</title>
+  </head>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .img_google{
+    border-radius: 50%;
+    width:40px;
+    height: 40px;
+    margin-right: 6px;   
+    margin-top: 0px;     
+}
+
+.resturantimages{
+    margin-left: 6%;
+}
+
+
+
+  #dropdow{
+    height: 40px;
+    
+  }
+
+  .right2 {
+    position: absolute;
+    font-size: large;
+    cursor: pointer;
+    right: 1px;
+  }
+
+  
+  .para {
+    text-align: center;
+    font-size: 100px;
+    font-style: italic;
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+  }
+
+  
+
+ 
+
+  .desc {
+    text-align: center;
+    margin-top: 1%;
+    color: white;
+    font-size: 32px;
+    word-spacing: 2px;
+  }
+
+  .img_google{
+    border-radius: 50%;
+    width:40px;
+    height: 40px;
+    
+  }
+
+  h6{
+    letter-spacing: 2px;
+  }
+
+  select {
+    height: 50px;
+  }
+  .footer-head{
+   
+  }
+
+
+  #dropdown {
+    text-align: center;
+    width: 250px;
+  }
+
+  
+
+  .footer-head{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .container {
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  .place_parent {
+    margin-top: 4%;
+    margin-left: 17%;
+    width: 290px;
+  }
+
+  .socialicons{
+    display: flex;
+    position: relative;
+    left:18%;
+  }
+
+  input:hover{
+    border: none;
+  }
+
+  .place_name {
+    font-size: large;
+    padding-left: 5%;
+  }
+  .buttons{
+    display: flex;
+    align-items: center;
+  }
+  .rest{
+    
+  }
+
+  .drop{
+    display: flex;
+    align-items: center;
+  }
+  .input2{
+    
+  }
+
+  .applink {
+    display: flex;
+    align-items: center;
+  }
+i{
+  
+}
+.parent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.orderonline:hover{
+  display: inline;
+  border-bottom: 2px solid coral;
+}
+.reviews:hover{
+  display: inline;
+  border-bottom: 2px solid coral;
+}
+.logo{
+    margin-right: 1%;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+}
+.para{
+    font-size: 40px;
+    color: black;
+    margin-top: 0px;
+    text-align: center;
+    font-style: italic;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+.inputs {
+    display: flex;
+   
+    align-items: center;
+    
+}
+.profile{
+    display: flex;
+    align-items: center;
+    margin-right: 5%;
+}
+.para_del{
+    color: rgb(237, 90, 107);
+    font-size: large;
+    font:200;
+    padding-left: 30%;
+    margin-top: 1%; 
+    letter-spacing: 1px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.resturantimage{
+    width:300px;
+    height: 200px;
+}
+.delivery{
+    display: flex;
+    align-items: center;
+    width:150px;
+}
+.nutrition{
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.nutrition_image{
+    border-radius: 50%;
+    border: none;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    background-color: rgb(236, 229, 216);
+    margin-left: 2%;
+    object-fit: contain;
+}
+.side{
+    display: flex;
+}
+.image_nut{
+    margin-left: 32%;
+}
+.delboy_image{
+    border-radius: 50%;
+    border: none;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    background-color: rgb(240, 225, 200);
+    margin-left: 2%;
+    object-fit: contain;
+}
+.para_nut{
+    color: rgb(237, 90, 107);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+.filters{
+    display:flex;
+    margin-top: 2%;
+   
+}
+.filter{
+    margin-right: 5px;
+    
+}
+.filterpara{
+    margin-top: 2px;
+    border: 1px solid lightgrey;
+    padding:5px 10px 7px 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+.info{
+  display: flex;
+  
+}
+.detail{
+  
+}
+.titlenut{
+    margin-left: 12%;
+}
+.delivery:hover{
+    border-bottom: 2px solid lightcoral;
+}
+.nutrition:hover{
+    border-bottom: 2px solid lightcoral;
+}
+.catdish{
+    display: flex;
+    margin-top: 2%;
+}
+.cat_image{
+    
+}
+.eat_para{
+    font-size: xx-large;
+    margin-top: 2%;
+}
+.catname{
+    margin-top: 2%;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.catimage{
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    border: none;
+    margin-right: 30px;
+}
+a.disabled {
+    pointer-events: none;
+    color: #ccc;
+}
+</style>
+  <body>
+    
+    <div class="parent">
+        <div class="logo">
+            <a style="text-decoration: none;" href="/"><p class="para">zomato</p></a>
+            <div style="margin-bottom: 3%; margin-left:10%; margin-top:2%;" class="input1">
+                <form class="d-flex" method="GET" action="/search">
+                  <input style="width: 250px; padding:10px;" class="form-control me-2" type="search" placeholder="Search for a city" value="" name="query" id="search" aria-label="Search">
+                </form>
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+        
+            </div>
+            <div style="margin-bottom:3%; margin-top:2%;" class="input2">
+                <i  style="font-size: 25px; position: absolute; color:lightgrey;
+                top:4%;
+                padding-left: 1%;" class="fa fa-search"></i>
+                <form  class="d-flex" method="GET" action="/searchresturant">
+                  <input style="width: 500px; padding-top:10px; padding-bottom:10px; padding-left:42px;" style="padding-left:1%;" class="form-control me-2" type="search" placeholder="Search for Resturant and dishes" value="" name="rest" id="rest" aria-label="rest">
+                </form>
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </div>
+        </div>  
+         
+        <div class="profile">
+            {% if request.user.is_authenticated %}
+                <img style="margin-bottom: 25px; margin-top:15%;" class="img_google" src="{{ user.socialaccount_set.all.0.get_avatar_url }}"></li></p>
+                <p style="font-size: large; text-transform:capitalize; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{request.user}}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="resturantimages">
+      <div class="row">
+          <div class="col">
+              <div class="row">
+                  <div class="col-lg-6">
+                    {% for resturant in resturant %}
+                      <img style="width:600px; height:400px;  display: block; margin-left:auto; margin-right:auto;" src="{{resturant.image.url}}" alt="image">
+                    {% endfor %}
+                </div>
+                <div class="col-lg-4">
+                  {% for resturant in resturant %}
+                    <img style="width:500px; display:block; height:400px; margin-left:auto; margin-right:auto;" src="{{resturant.image1.url}}" alt="image1">
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>  
+  <article>
+    <div style="margin-left: 7.3%; margin-top:1%;">
+      {% for resturant in resturant %}
+        <p style="font-size: 35px; color:black; margin-bottom:0px; text-transform:capitalize;">{{resturant.name}}</p>
+        <p style="margin-bottom: 5px; font-size:17px; text-transform:capitalize; color:rgb(134, 132, 132);">status : {{resturant.base}}</p>
+        <p style="font-size:17px; margin-bottom:5px; color: rgb(134, 132, 132);">{{resturant.city}} Locality</p>
+        <p style="font-size: 17px; letter-spacing:0.5px; color:rgb(134, 132, 132);">{{resturant.timingstart}}-{{resturant.timingend}}(Today)</p>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col">
+        <div style="width:530px; margin-left:6.3%;" class="row">
+              <div class="col">
+                <button style="border: 1px solid rgb(192, 190, 190); border-radius:10px; padding:5px 10px 5px 10px; color:white; background-color:rgb(199, 61, 61); " type="submit">Add Review</button>
+              </div>
+              <div class="col">
+                <button style="border: 1px solid lightgrey; border-radius:10px; padding:5px 10px 5px 10px;" type="submit">Direction</button>
+              </div>
+              <div class="col">
+                <button style="border: 1px solid lightgrey; border-radius:10px; padding:5px 10px 5px 10px;" type="submit">Bookmark</button>
+              </div>
+              <div class="col">
+                <button style="border: 1px solid lightgrey; border-radius:10px; padding:5px 10px 5px 10px;" type="submit">Share</button>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 300px; margin-bottom:0px; margin-left:6.3%; margin-top:1%;" class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <p class="orderonline" style="font-size: large;">Order Online</p>
+            </div>
+            <div class="col">
+              <p class="reviews" style="font-size: large;">Reviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="border-bottom: 2px solid lightgrey;">
+      </div>
+  
+      <div style="margin-left:6.7%; margin-top:1%;" class="row">
+        <div class="col-2">
+            {% for category in category %}
+                  <p style="border-right: 2px solid rgb(182, 175, 175); font-size: 18px; text-transform:capitalize;">{{category.name}}</p>
+            {% endfor %}
+        </div>
+        <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                    <p style="font-size:24px; color:black; ">Order Online</p>
+                  </div>
+                  <div class="col">
+                    <form  class="d-flex" method="GET" action="">
+                      <i style="font-size: 25px; position:relative; left:6%; margin-top:2.3%; color:rgb(184, 177, 177); " class="fa fa-search"></i>
+                      <input style="width: 250px; font-size:large;  padding-top:10px; letter-spacing:1px; padding-bottom:10px; padding-left:40px;" style="padding-left:1%;" class="form-control me-2" type="search" placeholder="Search within menu" value="" name="rest" id="rest" aria-label="rest">
+                    </form>
+                  </div>
+                  <div class="dishes">
+                    {% for dish in dish %}
+                      <div class="info">
+                        <img style="width: 170px; height:160px; margin-bottom:2%; border-radius:12px;" src="{{dish.image.url}}" alt="dishimage">
+                        <div style="margin-left: 1%;" class="detail">
+                          <p style="font-size: 20px; text-transform:capitalize; margin-top:2%; margin-bottom:2px; color:black;">{{dish.name}}</p>
+                          <button style="background-color: rgb(83, 156, 238); margin-top:4%; padding:1px 5px 1px 5px; font-size:small; text-transform:uppercase; border:none; color:white; border-radius:5px;" class="">Must try</button>
+                          <p style="margin-top:5%; margin-bottom:1%; color:rgb(129, 125, 125);">₹ {{dish.price}}</p>
+                          <p style="margin-top: 5%; text-transform:capitalize; color:rgb(129, 125, 125);">{{dish.description}}</p>
+                        </div>
+                      </div>
+                    
+
+                    {% endfor %}
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </article>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
