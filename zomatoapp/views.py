@@ -1,9 +1,13 @@
 from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 from .models import *
 import requests
+from django.http import HttpResponseRedirect
+
 import json
 
 # Create your views here.
@@ -54,10 +58,83 @@ def searchresturant(request):
 def detail(request,resturantid):
     resturant = Resturant.objects.filter(id=resturantid)
     category = Category.objects.all()
-    dish = Dish.objects.filter(resturant__name__contains=resturant.first())
+    dish = None
+    category_id = request.GET.get('category')
+    if category_id:
+        dish = Dish.Dishbycategories(categoryid=category_id,resturantname=resturant)
+    else:
+        dish = Dish.objects.filter(resturant__name__contains=resturant.first())
     context = {
         'resturant' : resturant,
         'category' : category,
         'dish' : dish
     }
     return render(request,"detail.html",context=context)
+
+
+import razorpay
+client = razorpay.Client(auth=("rzp_test_GbeNwBv7uvalU5", "tZy9sfCz0bd5NXEwvhIXezAN"))
+
+@login_required
+def buy(request,dish_id):
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        return redirect('/login')    
+    dish = Dish.objects.get(id=dish_id)
+    order_amount = dish.price * 100
+    order_currency = 'INR'
+    order_receipt = 'order_rcptid_{dish.id}_{user.id}'
+    data = {
+        'amount' : order_amount,
+        'currency' : order_currency,
+        'receipt' : order_receipt
+    }
+    order = client.order.create(data=data)
+    payment = Payment(user=user,dish=dish,status='fail',order_id=order.get('id'))
+    payment.save()
+    print(order)
+    context={
+        'dish':dish,
+        'order': order
+    }
+
+    return render(request,"buy.html",context) 
+
+
+def orders(request):
+    if request.user.is_authenticated:
+        user = request.user
+        print(user)
+    else:
+        user = None    
+    userproduct = Userproduct.objects.filter(user=user)
+
+    context = {
+        'userproduct' : userproduct
+    }        
+
+    return render(request,"order.html",context=context)
+
+@csrf_exempt
+def verifypayment(request):
+    if request.method == "POST":
+        print(request.POST)
+        razorpay_payment_id = request.POST.get('razorpay_payment_id')
+        razorpay_order_id = request.POST.get('razorpay_order_id')
+        razorpay_signature = request.POST.get('razorpay_signature')
+        params_dict = {
+            'razorpay_order_id': razorpay_order_id,
+            'razorpay_payment_id': razorpay_payment_id,
+            'razorpay_signature': razorpay_signature
+        }
+        client.utility.verify_payment_signature(params_dict)
+        payment = Payment.objects.get(order_id = razorpay_order_id)
+        payment.status = "SUCCESS"
+        payment.payment_id = razorpay_payment_id
+        payment.save()
+
+        user_product = Userproduct(user = payment.user,payment=payment,dish=payment.dish)
+        user_product.save()
+        return redirect ('/orders')
+

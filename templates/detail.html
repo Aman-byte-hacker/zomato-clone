@@ -266,6 +266,7 @@ i{
 }
 .info{
   display: flex;
+ 
   
 }
 .detail{
@@ -291,6 +292,23 @@ i{
     font-size: xx-large;
     margin-top: 2%;
 }
+.button{
+  position: relative;
+  bottom: 40%;
+  right: 4%;
+}
+.button_buy{
+  
+  border: none;
+  border: 1px solid rgb(231, 130, 130);
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  color: red;
+ 
+}
+.button_buy:hover{
+  background-color: antiquewhite;
+}
 .catname{
     margin-top: 2%;
     text-transform: capitalize;
@@ -303,6 +321,9 @@ i{
     border-radius: 10px;
     border: none;
     margin-right: 30px;
+}
+.dishes{
+ 
 }
 a.disabled {
     pointer-events: none;
@@ -402,7 +423,7 @@ a.disabled {
       <div style="margin-left:6.7%; margin-top:1%;" class="row">
         <div class="col-2">
             {% for category in category %}
-                  <p style="border-right: 2px solid rgb(182, 175, 175); font-size: 18px; text-transform:capitalize;">{{category.name}}</p>
+                <a style="text-decoration: none;" href="?category={{category.id}}"><p style="color:black; border-right: 2px solid rgb(182, 175, 175); font-size: 18px; text-transform:capitalize;">{{category.name}}</p></a>
             {% endfor %}
         </div>
         <div class="col">
@@ -427,10 +448,13 @@ a.disabled {
                           <button style="background-color: rgb(83, 156, 238); margin-top:4%; padding:1px 5px 1px 5px; font-size:small; text-transform:uppercase; border:none; color:white; border-radius:5px;" class="">Must try</button>
                           <p style="margin-top:5%; margin-bottom:1%; color:rgb(129, 125, 125);">₹ {{dish.price}}</p>
                           <p style="margin-top: 5%; text-transform:capitalize; color:rgb(129, 125, 125);">{{dish.description}}</p>
+                         
                         </div>
                       </div>
+                      <div class="button"  style="float: right;">
+                        <a href="buy/{{dish.id}}"><button class="button_buy" type="submit">Buy Now</button></a>
+                      </div>
                     
-
                     {% endfor %}
                   </div>
                   

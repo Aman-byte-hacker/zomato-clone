@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.utils import tree
 # Create your models here.
 
 
@@ -49,10 +50,36 @@ class Dish(models.Model):
     available = models.BooleanField(default=True)
     category = models.ForeignKey(Category,on_delete=models.DO_NOTHING,default="")
 
+    @staticmethod
+    def Dishbycategories(categoryid,resturantname):
+        if categoryid:
+            return Dish.objects.filter(category=categoryid,resturant__name__contains=resturantname.first())
+        else:
+            return Dish.objects.all()    
+
     def __str__(self):
         return self.name
 
 
+class Payment(models.Model):
+    dish = models.ForeignKey(Dish,on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    
+    statuses = [
+        ('success','success'),
+        ('fail','fail')
+    ]
+    payment_id = models.CharField(max_length=400,null=True,blank=True)
+    order_id = models.CharField(max_length=400,null=True,blank=True)
+    status = models.CharField(choices=statuses,max_length=100)
+
+
+class Userproduct(models.Model):
+    user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    dish = models.ForeignKey(Dish,on_delete=models.DO_NOTHING)
+    payment = models.ForeignKey(Payment,on_delete=models.CASCADE)
+
+    
 
 
 

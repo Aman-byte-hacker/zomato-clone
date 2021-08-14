@@ -1,0 +1,29 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    window.onload = function(){
+        var options = {
+            "key": "rzp_test_GbeNwBv7uvalU5",
+            "amount" : "{{product.price}}",
+            "currency": "INR",
+            "name" : "{{dish.name}}",
+            "description": "{{dish.description}}",
+            "image": "{{dish.image.url}}",
+            "order_id": "{{order.id}}",
+            "callback_url": "http://localhost:8000/payment/verify",
+            "theme": {
+                "color": "#3399cc"
+            },
+            "prefill": {
+                "name": "{{request.user}}",
+                "email": "{{request.user.email}}"
+            },
+        }
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+    
+</script>    
+
+    <p>{{dish}}</p>
+    <p>{{order}}</p>
+    
