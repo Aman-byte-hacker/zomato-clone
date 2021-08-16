@@ -130,7 +130,7 @@ def verifypayment(request):
         }
         client.utility.verify_payment_signature(params_dict)
         payment = Payment.objects.get(order_id = razorpay_order_id)
-        payment.status = "SUCCESS"
+        payment.status = "success"
         payment.payment_id = razorpay_payment_id
         payment.save()
 
