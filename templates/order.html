@@ -18,13 +18,14 @@
             <td>Status</td>
         </thead>
         <tbody>
-            <tr>
                 {% for userproduct in userproduct %}
+		<tr>
                     <td>{{userproduct.user}}</td>
                     <td>{{userproduct.dish}}</td>
                     <td>{{userproduct.status}}</td>
-                {% endfor %}
-            </tr>
+                </tr>
+		{% endfor %}
+            
         </tbody>
     </table>
 

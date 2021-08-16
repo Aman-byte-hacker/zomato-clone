@@ -86,7 +86,8 @@ class Userproduct(models.Model):
 	('Delieverd','done')
     ]
 
-    status = models.CharField(choices = delstatus,max_length=200,default="accepted")
+    status = models.CharField(choices = delstatus,max_length=200,default="accepted")	
+    	
 	
 
    	
