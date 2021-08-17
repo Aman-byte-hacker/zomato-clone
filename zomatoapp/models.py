@@ -78,18 +78,8 @@ class Userproduct(models.Model):
     user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
     dish = models.ForeignKey(Dish,on_delete=models.DO_NOTHING)
     payment = models.ForeignKey(Payment,on_delete=models.CASCADE)
+
     
-    delstatus = [
-	('order accepted','accepted'),
-	('Food is being prepared','preparing',),
-	('out for delievery','out for delievery'),
-	('Delieverd','done')
-    ]
-
-    status = models.CharField(choices = delstatus,max_length=200,default="accepted")
-	
-
-   	
 
 
 
