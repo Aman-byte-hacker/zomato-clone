@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import tree
+import time
 # Create your models here.
 
 
@@ -78,10 +79,11 @@ class Userproduct(models.Model):
     user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
     dish = models.ForeignKey(Dish,on_delete=models.DO_NOTHING)
     payment = models.ForeignKey(Payment,on_delete=models.CASCADE)
-
-    
-
-
-
-
-
+    delstatus = [
+        ('order accepted','accept'),
+        ('Food is being prepared','food is being prepared'),
+        ('out for delievery','out for delievery'),
+        ('delieverd','delieverd')
+    ]
+    status = models.CharField(choices = delstatus,max_length=200,default="accepted")	
+    date = models.DateTimeField(auto_now_add=True)
