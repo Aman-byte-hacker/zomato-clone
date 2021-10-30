@@ -73,7 +73,7 @@ def detail(request,resturantid):
 
 
 import razorpay
-client = razorpay.Client(auth=("rzp_test_GbeNwBv7uvalU5", "tZy9sfCz0bd5NXEwvhIXezAN"))
+client = razorpay.Client(auth=("rzp_test_FVgxuzBdJ9c4So", "4riLfbUSnTNTzkNFzoIqA7GD"))
 
 @login_required
 def buy(request,dish_id):
@@ -137,4 +137,3 @@ def verifypayment(request):
         user_product = Userproduct(user = payment.user,payment=payment,dish=payment.dish)
         user_product.save()
         return redirect ('/orders')
-
